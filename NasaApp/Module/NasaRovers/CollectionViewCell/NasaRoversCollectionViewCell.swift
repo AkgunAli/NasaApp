@@ -15,8 +15,6 @@ class NasaRoversCollectionViewCell: UICollectionViewCell {
     var roversPhotoCellViewModel : roversPhotoCellViewModel? {
         didSet {
             roverTitle.text = roversPhotoCellViewModel?.titleText
-
-            
             apiService.downloadImage(with :roversPhotoCellViewModel!.imageUrl){ [self]image in
                  guard let image  = image else { return}
                 roverImage.image = image

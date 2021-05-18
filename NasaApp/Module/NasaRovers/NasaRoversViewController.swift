@@ -26,7 +26,7 @@ class NasaRoversViewController: UIViewController {
         initView()
         initVM()
     }
-    
+
     func initView() {
         navigationItem.title = "Nasa Rovers "
         let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "filter-filled"), style: .done, target: self, action: #selector(addTapped))
@@ -34,13 +34,11 @@ class NasaRoversViewController: UIViewController {
     }
 
     @objc func addTapped() {
-        print("button tapped")
         viewModel.pickerViewShow(UIViewController: self)
-
     }
 
     func initVM() {
-        viewModel.initFetch(roverType: curiosity, page:  "\(page)")
+        viewModel.initFetch(roverType: curiosity, page: "\(page)")
         viewModel.reloadTableViewClosure = { [weak self] () in
             DispatchQueue.main.async {
                 self?.collectionView.reloadData()
@@ -88,7 +86,6 @@ extension NasaRoversViewController: UICollectionViewDelegate, UICollectionViewDa
         if collectionView.contentOffset.y >= (collectionView.contentSize.height - collectionView.bounds.size.height) - 100 {
             if !isPageRefreshing {
                 isPageRefreshing = true
-                print(page)
                 page = page + 1
                 if currentTab == curiosity {
                     viewModel.initFetch(roverType: curiosity, page: "\(page)")
@@ -108,27 +105,23 @@ extension NasaRoversViewController: UICollectionViewDelegate, UICollectionViewDa
                 }
             }
         }
-
     }
 }
+
 extension NasaRoversViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return viewModel.uniquePickerArray!.count
     }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-       
-        return viewModel.uniquePickerArray![row]
 
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return viewModel.uniquePickerArray![row]
     }
-        
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(viewModel.uniquePickerArray?[row])
         viewModel.pickerSelectedValue = viewModel.uniquePickerArray?[row] ?? ""
     }
-    
 }

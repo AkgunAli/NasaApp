@@ -118,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				BE6D277B264FF26B002B942C /* Response */,
-				BE6D277A264FF264002B942C /* Request */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -140,13 +139,6 @@
 				BE6D278A2650416A002B942C /* NasaRoversViewModel.swift */,
 			);
 			path = NasaRovers;
-			sourceTree = "<group>";
-		};
-		BE6D277A264FF264002B942C /* Request */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Request;
 			sourceTree = "<group>";
 		};
 		BE6D277B264FF26B002B942C /* Response */ = {
