@@ -1,0 +1,8 @@
+target 'NasaApp' do
+use_frameworks!
+
+pod 'Kingfisher'
+pod 'Alamofire', '= 5.0.0-rc.2'
+pod 'AlamofireObjectMapper'
+  
+end
