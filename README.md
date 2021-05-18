@@ -1,2 +1,5 @@
 # NasaApp
-Nasa Rovers Aplication
+
+Nasa Rovers Aplication.
+
+please run command 'pod install ' .
